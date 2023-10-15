@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { RemoveButton } from './StyledPhoneItem';
-import { fetchDeleteContacts } from 'redux/contactsOperation';
+import { fetchDeleteContacts } from 'redux/contacts/contactsOperation';
 
 export const PhoneItem = ({ contact }) => {
   const dispatch = useDispatch();

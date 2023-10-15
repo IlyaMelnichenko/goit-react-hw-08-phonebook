@@ -52,6 +52,6 @@ export const contactsSlice = createSlice({
       .addCase(fetchDeleteContacts.rejected,onRejected)
   }
 });
-export const getContacts = state => state.contacts.items;
+
 
 export const { addContact, deleteContact } = contactsSlice.actions;

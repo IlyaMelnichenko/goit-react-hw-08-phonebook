@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { StyledForm, StyledFild, AddButton } from './StyledContactFrom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchAddContacts } from 'redux/contactsOperation';
+import { fetchAddContacts } from 'redux/contacts/contactsOperation';
 
 const schema = Yup.object().shape({
   name: Yup.string()

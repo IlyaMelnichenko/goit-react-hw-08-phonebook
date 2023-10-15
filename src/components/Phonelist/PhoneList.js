@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { PhoneItem } from '../Phoneitem/PhoneItem';
 import { StyledItem, StyledList } from './StyledPhoneList';
-import { getContacts } from 'redux/contactsSlice';
-import { getFilter } from 'redux/filterSlice';
+import { getContacts } from 'redux/contacts/contactsSlice';
+import { getFilter } from 'redux/contacts/filterSlice';
 
 export const PhoneList = () => {
   const contacts = useSelector(getContacts);
