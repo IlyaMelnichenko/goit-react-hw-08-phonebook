@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet';
 
 import { useAuth } from 'hooks';
-import { Box } from 'components/GlobalStyle';
-import { HomeGlobalStyle } from './Home.styled';
+
 import { GiOldMicrophone } from 'react-icons/gi';
+import Register from './Register';
 export default function Home() {
   const { isLoggedIn } = useAuth();
 
@@ -14,7 +14,7 @@ export default function Home() {
       {!isLoggedIn ? (
         <Register />
       ) : (
-        <Box>
+        <div>
           <h1 style={{ fontSize: 44 }}>WELCOME !!!</h1>
           <b
             style={{
@@ -29,8 +29,8 @@ export default function Home() {
           <h2 style={{ fontSize: 44 }}>Phonebook Organizer</h2>
 
           <GiOldMicrophone />
-          <HomeGlobalStyle />
-        </Box>
+          
+        </div>
       )}
     </>
   );

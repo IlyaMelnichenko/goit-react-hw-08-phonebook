@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {toast} from 'react-hot-toast';
-import { fetchContacts,fetchAddContacts,fetchDeleteContacts } from './contactsOperation';
+import { fetchContacts, fetchAddContact, fetchDeleteContact, fetchEditContact } from './operations';
 
-const toastLoading = toast.loading('', { position: 'top-center' });
+export const toastLoading = toast.loading('', { position: 'top-center' });
 const onPending = state => {
   state.isLoading = true;
   toast.loading('Waiting...',{  id: toastLoading,
@@ -35,6 +35,18 @@ const onDeleteFulfilled = (state, action) => {
     items: state.items.filter(contact => contact.id !== action.payload.id),
   };
 };
+const onEditFulfilled = (state, action) => {
+  
+
+  const newState = {
+    ...state,
+    items: state.items.map(contact =>
+      contact.id === action.payload.id ? action.payload : contact
+    ),
+  };
+
+  return newState;
+};
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -44,14 +56,18 @@ export const contactsSlice = createSlice({
       .addCase(fetchContacts.pending,onPending)
       .addCase(fetchContacts.fulfilled,onFulfilled)
       .addCase(fetchContacts.rejected,onRejected)
-      .addCase(fetchAddContacts.pending,onPending)
-      .addCase(fetchAddContacts.fulfilled,onAddFulfilled)
-      .addCase(fetchAddContacts.rejected,onRejected)
-      .addCase(fetchDeleteContacts.pending,onPending)
-      .addCase(fetchDeleteContacts.fulfilled,onDeleteFulfilled)
-      .addCase(fetchDeleteContacts.rejected,onRejected)
+      .addCase(fetchAddContact.pending,onPending)
+      .addCase(fetchAddContact.fulfilled,onAddFulfilled)
+      .addCase(fetchAddContact.rejected,onRejected)
+      .addCase(fetchDeleteContact.pending,onPending)
+      .addCase(fetchDeleteContact.fulfilled,onDeleteFulfilled)
+      .addCase(fetchDeleteContact.rejected,onRejected)
+      .addCase(fetchEditContact.pending, onPending)
+      .addCase(fetchEditContact.fulfilled, onEditFulfilled)
+      .addCase(fetchEditContact.rejected, onRejected);
   }
 });
 
 
 export const { addContact, deleteContact } = contactsSlice.actions;
+export const contactsReducer = contactsSlice.reducer;

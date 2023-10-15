@@ -4,16 +4,16 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import { refresh } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks';
-import { PrivateRoute } from './PrivateRoute';
+import { PrivateRoute } from './PrivateRoute.js';
 import { RestrictedRoute } from './RestrictedRoute';
-import { GlobalStyle } from './GlobalStyle';
+
 import LoadingSpinnerComponent from 'react-spinners-components';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
-const TasksPage = lazy(() => import('../pages/Tasks'));
+
 const ContactEditPage = lazy(() => import('../pages/ContactEdit'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
@@ -59,14 +59,11 @@ export const App = () => {
               />
             }
           />
-          <Route
-            path="/tasks"
-            element={<PrivateRoute redirectTo="/" component={<TasksPage />} />}
-          />
+         
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-      <GlobalStyle />
+      
     </>
   );
 };

@@ -2,14 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-
-
-
-import Message from 'components/Message/Message';
-
 import { fetchContacts } from 'redux/contacts/operations';
-
-
 
 import { Toaster } from 'react-hot-toast';
 import { PhoneList } from 'components/Phonelist/PhoneList';
@@ -17,6 +10,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import CountOfContacts from 'components/Header/Counter';
 import { selectTotalContacts } from 'redux/contacts/selectors';
+import Message from 'components/Message';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -40,7 +34,7 @@ export default function Contacts() {
       ) : (
         <PhoneList />
       )}
-      
+
       <Toaster />
     </div>
   );

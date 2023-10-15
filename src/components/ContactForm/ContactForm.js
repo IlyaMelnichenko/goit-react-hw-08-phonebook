@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { StyledForm, StyledFild, AddButton } from './StyledContactFrom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchAddContacts } from 'redux/contacts/contactsOperation';
+import { fetchAddContact } from 'redux/contacts/operations';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -12,7 +12,7 @@ const schema = Yup.object().shape({
     .required('This is required!')
     .min(1, 'Too Short!')
     .max(50, 'Too Long!'),
-  phone: Yup.string()
+  number: Yup.string()
     .matches(/^\+?[0-9]{1,3}-?[0-9]+$/, 'Invalid number')
     .required('This is required!')
     .min(6, 'Too Short!')
@@ -28,7 +28,7 @@ export const ContactForm = () => {
       <Formik
         initialValues={{
           name: '',
-          phone: '',
+          number: '',
         }}
         validationSchema={schema}
         onSubmit={(values, actions) => {
@@ -42,7 +42,7 @@ export const ContactForm = () => {
             alert(`${checkName} already recorded in the directory`);
             return;
           }
-          dispatch(fetchAddContacts({ ...values }));
+          dispatch(fetchAddContact({ ...values }));
           actions.resetForm();
         }}
       >
@@ -54,8 +54,8 @@ export const ContactForm = () => {
           </label>
           <label>
             Number
-            <StyledFild type="tel" name="phone" />
-            <ErrorMessage name="phone" component="div" />
+            <StyledFild type="tel" name="number" />
+            <ErrorMessage name="number" component="div" />
           </label>
 
           <AddButton type="submit">Add contact</AddButton>

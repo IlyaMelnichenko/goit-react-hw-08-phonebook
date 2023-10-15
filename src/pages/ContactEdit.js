@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { ErrorMessage, Field, Formik } from 'formik';
+import { ErrorMessage, Field, Formik,Form } from 'formik';
 import * as Yup from 'yup';
 import { RiArrowLeftCircleFill } from 'react-icons/ri';
 import { fetchEditContact } from 'redux/contacts/operations';
@@ -10,7 +10,7 @@ import { selectContacts } from 'redux/contacts/selectors';
 import { toast, Toaster } from 'react-hot-toast';
 import { toastLoading } from 'redux/contacts/contactsSlice';
 
-import { Box } from 'components/GlobalStyle';
+
 
 const formSchema = Yup.object().shape({
   name: Yup.string()
@@ -82,7 +82,7 @@ export default function ContactEdit() {
         <RiArrowLeftCircleFill /> Go back
       </NavLink>
 
-      <Box>
+      <div>
         <Helmet title="Edit contact" />
 
         <h2>Let's edit your contact</h2>
@@ -114,7 +114,7 @@ export default function ContactEdit() {
         </Formik>
         <Toaster />
       
-      </Box>
+      </div>
     </>
   );
 }
