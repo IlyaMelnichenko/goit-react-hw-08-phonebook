@@ -7,7 +7,7 @@ export const Filter = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
   return (
-    <StyledFilter>
+    <div>
       <label>
         Find contacts by name
         <input
@@ -15,6 +15,6 @@ export const Filter = () => {
           value={filter}
         ></input>
       </label>
-    </StyledFilter>
+    </div>
   );
 };

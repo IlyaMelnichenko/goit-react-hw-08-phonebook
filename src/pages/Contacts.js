@@ -8,9 +8,10 @@ import { Toaster } from 'react-hot-toast';
 import { PhoneList } from 'components/Phonelist/PhoneList';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
-import CountOfContacts from 'components/Header/Counter';
+import CountOfContacts from 'components/Counter';
 import { selectTotalContacts } from 'redux/contacts/selectors';
 import Message from 'components/Message';
+import { StyledContainer } from 'components/Phonelist/StyledPhoneList';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export default function Contacts() {
   }, [dispatch]);
 
   return (
-    <div>
+    <StyledContainer>
       <Helmet title="Your contacts" />
 
       <h1>Phonebook</h1>
@@ -36,6 +37,6 @@ export default function Contacts() {
       )}
 
       <Toaster />
-    </div>
+    </StyledContainer>
   );
 }

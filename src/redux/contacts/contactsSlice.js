@@ -32,7 +32,7 @@ const onDeleteFulfilled = (state, action) => {
   toast.success('Contact deleted');
   return {
     ...state,
-    items: state.items.filter(contact => contact.id !== action.payload.id),
+    items: state.items.filter(contact => contact.id !== action.payload.id)
   };
 };
 const onEditFulfilled = (state, action) => {

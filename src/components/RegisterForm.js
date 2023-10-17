@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import { register } from 'redux/auth/authOperations';
+import { StyledContainer } from './Phonelist/StyledPhoneList';
+import { StyledForm } from './Login/StyledLogin';
 
 
 const formSchema = Yup.object({
@@ -21,7 +23,7 @@ export default function RegisterForm() {
   const initialValues = { name: '', email: '', password: '' };
 
   return (
-    <>
+    <StyledContainer>
       <h2>Registration Form</h2>
       <h5>
         Have an account already? <Link to="/login">Sign Up</Link> please!
@@ -34,7 +36,7 @@ export default function RegisterForm() {
           
         }}
       >
-        <Form autoComplete="off">
+        <StyledForm autoComplete="off">
           <label>
             Username
             <Field type="text" name="name" placeholder="Enter your name" />
@@ -55,8 +57,8 @@ export default function RegisterForm() {
             <ErrorMessage name="password" component="b" />
           </label>
           <button type="submit">Register</button>
-        </Form>
+        </StyledForm>
       </Formik>
-    </>
+    </StyledContainer>
   );
 }

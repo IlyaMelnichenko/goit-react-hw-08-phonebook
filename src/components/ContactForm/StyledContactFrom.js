@@ -3,14 +3,13 @@ import { Field, Form } from 'formik';
 
 export const StyledForm = styled(Form)`
   color: white;
-  background-color: #4d5ae5;
+  
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 20px;
-  width: 200px;
-  padding: 60px;
-  border-radius: 10px;
+  margin: 10px auto;
+  align-items: center;
+ 
 `;
 
 export const StyledFild = styled(Field)`

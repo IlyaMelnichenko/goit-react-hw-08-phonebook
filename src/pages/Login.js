@@ -2,11 +2,12 @@ import { Helmet } from 'react-helmet';
 
 
 
-import { LoginForm } from 'components/Login';
+import { LoginForm } from 'components/Login/Login';
+import { StyledContainer } from 'components/Phonelist/StyledPhoneList';
 
 export default function Login() {
   return (
-    <div>
+    <StyledContainer>
       <Helmet title="Login" />
 
       <h2>Login Form</h2>
@@ -14,6 +15,6 @@ export default function Login() {
       <LoginForm />
 
      
-    </div>
+    </StyledContainer>
   );
 }

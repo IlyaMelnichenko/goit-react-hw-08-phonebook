@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Formik,Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { logIn } from 'redux/auth/authOperations';
+import { StyledForm } from './StyledLogin';
 
 
 const formSchema = Yup.object({
@@ -20,10 +21,10 @@ export const LoginForm = () => {
       validationSchema={formSchema}
       onSubmit={(values, actions) => {
         dispatch(logIn({ ...values }));
-        // actions.resetForm();
+        
       }}
     >
-      <Form autoComplete="off">
+      <StyledForm autoComplete="off">
         <label>
           Email
           <Field type="email" name="email" placeholder="Enter your name" />
@@ -39,7 +40,7 @@ export const LoginForm = () => {
           <ErrorMessage name="password" component="b" />
         </label>
         <button type="submit">Log In</button>
-      </Form>
+      </StyledForm>
     </Formik>
   );
 };
