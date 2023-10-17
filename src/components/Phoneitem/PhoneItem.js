@@ -13,6 +13,7 @@ export const PhoneItem = ({ contact }) => {
         <div>
           {contact.name}:{contact.number}
         </div>
+        </NavLink>
         <RemoveButton
           value={contact.id}
           onClick={() => {
@@ -21,7 +22,7 @@ export const PhoneItem = ({ contact }) => {
         >
           Delete
         </RemoveButton>
-      </NavLink>
+      
     </>
   );
 };
