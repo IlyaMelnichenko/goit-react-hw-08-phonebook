@@ -22,12 +22,6 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 };
-
-const tastksPersistConfig = {
-  key: 'tasks',
-  storage,
-};
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
