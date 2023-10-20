@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 
 import { useAuth } from 'hooks';
 
-import { GiOldMicrophone } from 'react-icons/gi';
+
 import Register from './Register';
 import { StyledContainer } from 'components/Phonelist/StyledPhoneList';
 export default function Home() {
