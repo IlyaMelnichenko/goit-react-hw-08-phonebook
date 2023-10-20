@@ -41,14 +41,22 @@ export const StyledHeader=styled.header`
   background-color: #4d5ae5;
   color: white;
   display: flex;
+  justify-content: space-between;
+  
   
   gap: 20px;
   margin: auto;
-  width:300px;;
-  padding: 15px 60px;
+  width: 400px;
+  padding: 15px 10px;
   border-radius: 10px;
   
   font-size: 18px;
   font-weight: 500;
 `
 
+export const StyledUser=styled.div`
+display: flex;
+gap:10px;
+
+
+`

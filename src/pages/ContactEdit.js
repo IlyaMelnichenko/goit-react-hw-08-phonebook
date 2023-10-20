@@ -2,13 +2,15 @@ import { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { ErrorMessage, Field, Formik,Form } from 'formik';
+import { ErrorMessage, Field, Formik } from 'formik';
 import * as Yup from 'yup';
 import { RiArrowLeftCircleFill } from 'react-icons/ri';
 import { fetchEditContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 import { toast, Toaster } from 'react-hot-toast';
 import { toastLoading } from 'redux/contacts/contactsSlice';
+import { StyledForm } from 'components/Login/StyledLogin';
+import { StyledContainer } from 'components/Phonelist/StyledPhoneList';
 
 
 
@@ -77,7 +79,7 @@ export default function ContactEdit() {
   };
 
   return (
-    <>
+    <StyledContainer>
       <NavLink to={backLocationRef.current}>
         <RiArrowLeftCircleFill /> Go back
       </NavLink>
@@ -92,8 +94,9 @@ export default function ContactEdit() {
           validationSchema={formSchema}
           onSubmit={handleSubmit}
         >
-          <Form>
+          <StyledForm>
             <label>
+              Name
               <Field
                 type="text"
                 name="name"
@@ -102,6 +105,7 @@ export default function ContactEdit() {
               <ErrorMessage name="name" component="b" />
             </label>
             <label>
+              Phone
               <Field
                 type="tel"
                 name="number"
@@ -110,11 +114,11 @@ export default function ContactEdit() {
               <ErrorMessage name="number" component="b" />
             </label>
             <button type="submit">Confirm changes</button>
-          </Form>
+          </StyledForm>
         </Formik>
         <Toaster />
       
       </div>
-    </>
+    </StyledContainer>
   );
 }
